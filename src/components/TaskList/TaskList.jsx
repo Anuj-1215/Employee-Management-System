@@ -2,27 +2,49 @@ import React from 'react'
 
 const TaskList = () => {
   return (
-    <div className='h-[55%] py-5 w-full bg-red-500 mt-10 flex items-center justify-start gap-5 flex-nowrap'>
-      <div className='h-full w-80 flex-shrink-0 bg-yellow-400 rounded-2xl'>
-
+    <div id='taskList' className='h-[55%] py-5 px-2 w-full  mt-10 overflow-x-auto scroll-smooth flex items-center justify-start gap-5 flex-nowrap'>
+      <div className='h-full w-80 flex-shrink-0 p-5 bg-red-400 rounded-2xl'>
+        <div className="flex justify-between items-center">
+          <h3 className='bg-red-600 px-3 py-1 font-semibold rounded text-sm'>High</h3>
+          <h4 className='text-sm font-semibold'>26 aug 2026</h4>
+        </div>
+        <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
+        <p className='text-sm mt-2'>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione optio ad illo temporibus in rem!
+        </p>
       </div>
 
-      <div className='h-full w-80 flex-shrink-0 bg-yellow-400 rounded-2xl'>
-
+      <div className='h-full w-80 flex-shrink-0 p-5 bg-blue-400 rounded-2xl'>
+        <div className="flex justify-between items-center">
+          <h3 className='bg-red-600 px-3 py-1 font-semibold rounded text-sm'>High</h3>
+          <h4 className='text-sm font-semibold'>26 aug 2026</h4>
+        </div>
+        <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
+        <p className='text-sm mt-2'>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione optio ad illo temporibus in rem!
+        </p>
       </div>
 
-       <div className='h-full w-80 flex-shrink-0 bg-yellow-400 rounded-2xl'>
-
+      <div className='h-full w-80 flex-shrink-0 p-5 bg-green-400 rounded-2xl'>
+        <div className="flex justify-between items-center">
+          <h3 className='bg-red-600 px-3 py-1 font-semibold rounded text-sm'>High</h3>
+          <h4 className='text-sm font-semibold'>26 aug 2026</h4>
+        </div>
+        <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
+        <p className='text-sm mt-2'>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione optio ad illo temporibus in rem!
+        </p>
       </div>
 
-
-       <div className='h-full w-80 flex-shrink-0 bg-yellow-400 rounded-2xl'>
-
-      </div>
-
-
-       <div className='h-full w-80 flex-shrink-0 bg-yellow-400 rounded-2xl'>
-
+      <div className='h-full w-80 flex-shrink-0 p-5 bg-yellow-400 rounded-2xl'>
+        <div className="flex justify-between items-center">
+          <h3 className='bg-red-600 px-3 py-1 font-semibold rounded text-sm'>High</h3>
+          <h4 className='text-sm font-semibold'>26 aug 2026</h4>
+        </div>
+        <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
+        <p className='text-sm mt-2'>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione optio ad illo temporibus in rem!
+        </p>
       </div>
     </div>
   )
