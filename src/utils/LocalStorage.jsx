@@ -1,8 +1,15 @@
 const employees = [
   {
     id: 1,
+    name: "Aarav Sharma",
     email: "employee1@example.com",
     password: "123",
+
+    activeL1: 3,
+    newTaskL1: 2,
+    completedL1: 1,
+    failedL1: 1,
+
     tasks: [
       {
         active: true,
@@ -59,8 +66,15 @@ const employees = [
 
   {
     id: 2,
+    name: "Priya Verma",
     email: "employee2@example.com",
     password: "123",
+
+    activeL1: 3,
+    newTaskL1: 2,
+    completedL1: 1,
+    failedL1: 1,
+
     tasks: [
       {
         active: true,
@@ -117,8 +131,15 @@ const employees = [
 
   {
     id: 3,
+    name: "Rohan Gupta",
     email: "employee3@example.com",
     password: "123",
+
+    activeL1: 3,
+    newTaskL1: 2,
+    completedL1: 1,
+    failedL1: 1,
+
     tasks: [
       {
         active: true,
@@ -175,8 +196,15 @@ const employees = [
 
   {
     id: 4,
+    name: "Sneha Patel",
     email: "employee4@example.com",
     password: "123",
+
+    activeL1: 3,
+    newTaskL1: 2,
+    completedL1: 1,
+    failedL1: 1,
+
     tasks: [
       {
         active: true,
@@ -233,8 +261,15 @@ const employees = [
 
   {
     id: 5,
+    name: "Vikram Singh",
     email: "employee5@example.com",
     password: "123",
+
+    activeL1: 3,
+    newTaskL1: 2,
+    completedL1: 1,
+    failedL1: 1,
+
     tasks: [
       {
         active: true,
@@ -293,11 +328,11 @@ const employees = [
 const admin = [
   {
     id: 1,
-    email: "admin@example.com",
+    name: "Rajesh Kumar",
+    email: "admin@me.com",
     password: "123"
   }
 ];
-
 export const setLocalStorage = () =>{
     localStorage.setItem('employees', JSON.stringify(employees))
     localStorage.setItem('admin', JSON.stringify(admin))
