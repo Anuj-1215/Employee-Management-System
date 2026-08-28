@@ -12,27 +12,27 @@ const App = () => {
   const [loggedInUserData, setloggedInUserData] = useState(null)
   const authData = useContext(AuthContext)
   
-  // useEffect(() => {
-  //   if(authData){
-  //     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"))
-  //     if(loggedInUser){
-  //       setUser(loggedInUser.role)
-  //     }
-  //   }
-  // }, [authData])
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    if(loggedInUser){
+      const userData = JSON.parse(loggedInUser)
+      setUser(userData.role)
+      setloggedInUserData(userData.data)
+    }
+  }, [])
 
 const loginHandler = (email, password) =>{
   if(authData && authData.admin.find((e) => email == e.email && password == e.password)){
     const admin = authData.admin.find((e) => email == e.email && password == e.password)
     setUser('admin')
     setloggedInUserData(admin)
-    localStorage.setItem('loggedInUser', JSON.stringify({role: 'admin'}))
+    localStorage.setItem('loggedInUser', JSON.stringify({role: 'admin', data: admin}))
   }
   else if(authData && authData.employees.find((e) => email == e.email && password == e.password)){
     const employee = authData.employees.find((e) => email == e.email && password == e.password)
     setUser('employee')
     setloggedInUserData(employee)
-    localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee'}))
+    localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee', data: employee}))
   }
   else{
     alert("Invalid credentials")
