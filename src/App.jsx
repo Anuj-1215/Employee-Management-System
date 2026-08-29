@@ -41,7 +41,7 @@ const loginHandler = (email, password) =>{
   
   return (
     <>
-      {!user ? <Login loginHandler = {loginHandler} /> : user == 'admin' ? <AdminDashboard data={loggedInUserData} /> : (user =='employee' ? <EmployeeDashboard data={loggedInUserData} /> : null) }
+      {!user ? <Login loginHandler = {loginHandler} /> : user == 'admin' ? <AdminDashboard changeUser={setUser} data={loggedInUserData} /> : (user =='employee' ? <EmployeeDashboard changeUser={setUser} data={loggedInUserData} /> : null) }
       
     </>
   )

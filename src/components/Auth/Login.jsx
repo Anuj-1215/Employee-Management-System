@@ -25,7 +25,7 @@ const Login = ({loginHandler}) => {
                 onChange={(e) => {
                     setEmail(e.target.value)
                 }}
-                className='border-2 required w-75 border-emerald-600 rounded-full py-3 text-xl text-black outline-none placeholder:text-gray-400 px-5'
+                className='border-2 required w-75 text-white border-emerald-600 rounded-full py-3 text-xl text-black outline-none placeholder:text-gray-400 px-5'
                 type="email" placeholder='Enter Your E-mail'
                 />
 
@@ -34,7 +34,7 @@ const Login = ({loginHandler}) => {
                 onChange={(e) => {
                     setPassword(e.target.value)
                 }}
-                className='border-2 required w-75 border-emerald-600 rounded-full py-3 text-xl mt-3 text-black outline-none placeholder:text-gray-400 px-5'
+                className='border-2 text-white required w-75 border-emerald-600 rounded-full py-3 text-xl mt-3 text-black outline-none placeholder:text-gray-400 px-5'
                 type="password" placeholder='Enter Password'
                 />
 
