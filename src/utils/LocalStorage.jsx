@@ -70,9 +70,9 @@ const employees = [
     email: "employee2@example.com",
     password: "123",
 
-    activeL1: 3,
-    newTaskL1: 2,
-    completedL1: 1,
+    activeL1: 2,
+    newTaskL1: 1,
+    completedL1: 2,
     failedL1: 1,
 
     tasks: [
@@ -135,10 +135,10 @@ const employees = [
     email: "employee3@example.com",
     password: "123",
 
-    activeL1: 3,
-    newTaskL1: 2,
+    activeL1: 4,
+    newTaskL1: 3,
     completedL1: 1,
-    failedL1: 1,
+    failedL1: 0,
 
     tasks: [
       {
@@ -200,10 +200,10 @@ const employees = [
     email: "employee4@example.com",
     password: "123",
 
-    activeL1: 3,
-    newTaskL1: 2,
-    completedL1: 1,
-    failedL1: 1,
+    activeL1: 1,
+    newTaskL1: 3,
+    completedL1: 2,
+    failedL1: 2,
 
     tasks: [
       {
@@ -265,10 +265,10 @@ const employees = [
     email: "employee5@example.com",
     password: "123",
 
-    activeL1: 3,
-    newTaskL1: 2,
-    completedL1: 1,
-    failedL1: 1,
+    activeL1: 5,
+    newTaskL1: 1,
+    completedL1: 3,
+    failedL1: 2,
 
     tasks: [
       {
