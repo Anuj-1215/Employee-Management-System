@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
@@ -20,6 +20,15 @@ const App = () => {
       setloggedInUserData(userData.data)
     }
   }, [])
+
+  useEffect(() => {
+    if (user === 'employee' && authData?.employees && loggedInUserData) {
+      const updatedEmployee = authData.employees.find((employee) => employee.id === loggedInUserData.id)
+      if (updatedEmployee) {
+        setloggedInUserData(updatedEmployee)
+      }
+    }
+  }, [authData?.employees, user])
 
 const loginHandler = (email, password) =>{
   if(authData && authData.admin.find((e) => email == e.email && password == e.password)){

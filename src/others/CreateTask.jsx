@@ -1,25 +1,42 @@
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AuthContext } from '../context/AuthProvider'
 
 const CreateTask = () => {
+    const authData = useContext(AuthContext)
     const [taskTitle, setTaskTitle] = useState('')
     const [taskDescription, setTaskDescription] = useState('')
     const [taskDate, setTaskDate] = useState('')
     const [assignTo, setAssignTo] = useState('')
     const [category, setCategory] = useState('')
 
-    const [newTask, setNewTask] = useState({})
-
     const submitHandler = (e) => {
         e.preventDefault()
 
-        setNewTask({taskTitle, taskDescription, taskDate, category, active:false, newTask:true, failed:false, completed:false})
+        const data = JSON.parse(localStorage.getItem('employees')) || []
+        const employee = data.find((elem) => elem.name === assignTo.trim())
 
-        const data = JSON.parse(localStorage.getItem('employees'))
-        data.forEach(function(elem){
-            if(assignTo == elem.name){
-                elem.tasks.push(newTask)
-            }
-        })
+        if (!employee) {
+            alert('Employee not found')
+            return
+        }
+
+        const task = {
+            taskTitle,
+            taskDescription,
+            taskDate,
+            category,
+            active: false,
+            newTask: true,
+            failed: false,
+            completed: false
+        }
+
+        employee.tasks.push(task)
+        employee.newTaskL1 += 1
+        localStorage.setItem('employees', JSON.stringify(data))
+        authData?.updateEmployees(data)
+
+        
 
         setTaskTitle('')
         setTaskDate('')
