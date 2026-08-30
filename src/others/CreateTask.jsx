@@ -32,7 +32,10 @@ const CreateTask = () => {
         }
 
         employee.tasks.push(task)
-        employee.newTaskL1 += 1
+        employee.newTaskL1 = employee.tasks.filter((item) => item.newTask).length
+        employee.activeL1 = employee.tasks.filter((item) => item.active && !item.newTask).length
+        employee.completedL1 = employee.tasks.filter((item) => item.completed).length
+        employee.failedL1 = employee.tasks.filter((item) => item.failed).length
         localStorage.setItem('employees', JSON.stringify(data))
         authData?.updateEmployees(data)
 

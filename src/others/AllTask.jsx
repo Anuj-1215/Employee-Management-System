@@ -16,12 +16,17 @@ const AllTask = () => {
 
       <div id='taskList' className='h-[80%]'>
         {authData.employees.map((e, idx) => {
+        const newTaskCount = e.tasks.filter((task) => task.newTask).length
+        const activeTaskCount = e.tasks.filter((task) => task.active && !task.newTask).length
+        const completedTaskCount = e.tasks.filter((task) => task.completed).length
+        const failedTaskCount = e.tasks.filter((task) => task.failed).length
+
         return <div key={idx} className=' border-2 border-emerald-300 mb-2 py-2 px-4 flex items-center justify-around rounded'>
         <h2 className='w-1/5 font-semibold text-xl'>{e.name}</h2>
-        <h3 className='w-1/5 font-semibold text-xl text-blue-400'>{e.newTaskL1}</h3>
-        <h5 className='w-1/5 font-semibold text-xl text-yellow-200'>{e.activeL1}</h5>
-        <h5 className='w-1/5 font-semibold text-xl text-green-600'>{e.completedL1}</h5>
-        <h5 className='w-1/5 font-semibold text-xl text-red-600'>{e.failedL1}</h5>
+        <h3 className='w-1/5 font-semibold text-xl text-blue-400'>{newTaskCount}</h3>
+        <h5 className='w-1/5 font-semibold text-xl text-yellow-200'>{activeTaskCount}</h5>
+        <h5 className='w-1/5 font-semibold text-xl text-green-600'>{completedTaskCount}</h5>
+        <h5 className='w-1/5 font-semibold text-xl text-red-600'>{failedTaskCount}</h5>
       </div>
       })}
       </div>

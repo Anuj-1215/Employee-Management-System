@@ -15,7 +15,7 @@ const TaskList = ({data}) => {
     if (!employee || !employee.tasks[taskIndex]) return
 
     const task = employee.tasks[taskIndex]
-    const previousStatus = task.completed ? 'completed' : task.failed ? 'failed' : task.active ? 'active' : 'newTask'
+    const previousStatus = task.completed ? 'completed' : task.failed ? 'failed' : task.newTask ? 'newTask' : 'active'
 
     if (previousStatus === status) return
 
@@ -23,8 +23,10 @@ const TaskList = ({data}) => {
     task.newTask = status === 'newTask'
     task.completed = status === 'completed'
     task.failed = status === 'failed'
-    employee[`${previousStatus}L1`] = Math.max(0, employee[`${previousStatus}L1`] - 1)
-    employee[`${status}L1`] += 1
+    employee.newTaskL1 = employee.tasks.filter((item) => item.newTask).length
+    employee.activeL1 = employee.tasks.filter((item) => item.active && !item.newTask).length
+    employee.completedL1 = employee.tasks.filter((item) => item.completed).length
+    employee.failedL1 = employee.tasks.filter((item) => item.failed).length
 
     localStorage.setItem('employees', JSON.stringify(employees))
     authData?.updateEmployees(employees)
@@ -33,11 +35,11 @@ const TaskList = ({data}) => {
   return (
     <div id='taskList' className='h-[55%] min-h-0 py-5 px-2 w-full mt-10 overflow-x-auto scroll-smooth flex items-stretch justify-start gap-5 flex-nowrap'>
       {data.tasks.map((elem, idx) => {
-        if(elem.active){
-          return <AcceptTask key={idx} data={elem} onStatusChange={(status) => updateTaskStatus(idx, status)} />
-        }
         if(elem.newTask){
           return <NewTask key={idx} data={elem} onStatusChange={(status) => updateTaskStatus(idx, status)} />
+        }
+        if(elem.active){
+          return <AcceptTask key={idx} data={elem} onStatusChange={(status) => updateTaskStatus(idx, status)} />
         }
         if(elem.completed){
           return <CompleteTask key={idx} data={elem} />
